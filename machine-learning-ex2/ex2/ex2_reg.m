@@ -126,7 +126,7 @@ for i = 1:length(lambda)
     xlabel('Microchip Test 1')
     ylabel('Microchip Test 2')
     
-    % legend('y = 1', 'y = 0', 'Decision boundary')
+    legend('y = 1', 'y = 0', 'Decision boundary')
     hold off;
     savePlot(sprintf('../../figure/ex2-%d Decision boundary on Microchip Test(lambda=%d).png', (3 + i), lambda(i)));
     % Compute accuracy on our training set
