@@ -102,6 +102,7 @@ hold off;
 legend(cellstr(num2str(alpha', 'alpha=%.2f')))
 xlabel('Number of iterations');
 ylabel('Cost J');
+savePlot('../../figure/ex1-5 Cost function by different alpha.png');
 
 % The best alpha
 alpha = 0.3
