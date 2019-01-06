@@ -62,7 +62,7 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
+% Part 1: Feedforward the neural network
 X = [ones(size(X, 1), 1) X];
 a1 = X;
 z2 = a1 * Theta1';
@@ -70,34 +70,17 @@ a2 = sigmoid(z2);
 a2 = [ones(m, 1) a2];
 z3 = a2 * Theta2';
 a3 = sigmoid(z3);
-
-for c = 1:num_labels
-    yp = (y == c);
-    J = J + -1 / m * sum(yp' * log(a3(:, c)) + (1 - yp)' * log(1 - a3(:, c)));
-end
-
+yp = repmat(1:num_labels, m, 1) == repmat(y, 1, num_labels);
+J = -1 / m * sum(sum(yp .* log(a3) + (1 - yp) .* log(1 - a3)));
 J = J + lambda / (2 * m) * (sum(sum(Theta1(:, 2:end) .^ 2)) + sum(sum(Theta2(:, 2:end) .^ 2)));
-
+% Part 2: Implement the backpropagation algorithm
 ys = eye(num_labels);
-for t = 1:m
-    a1 = X(t, :);
-    z2 = a1 * Theta1';
-    a2 = sigmoid(z2);
-    a2 = [1 a2];
-    z3 = a2 * Theta2';
-    a3 = sigmoid(z3);
-    delta3 = a3' - ys(:, y(t));
-    % 25 x 10 10 x 1 1 x 25
-    delta2 = Theta2(:, 2:end)' * delta3 .* sigmoidGradient(z2)';
-    % delta3: 10 x 1 a2(t, :):
-    Theta2_grad = Theta2_grad + delta3 * a2;
-    Theta1_grad = Theta1_grad + delta2 * a1;
-    
-end
-
-Theta1_grad = 1 / m * Theta1_grad;
+delta3 = a3' - ys(:, y);
+delta2 = Theta2(:, 2:end)' * delta3 .* sigmoidGradient(z2)';
+Theta2_grad = 1 / m * delta3 * a2;
+Theta1_grad = 1 / m * delta2 * a1;
+% Part 3: Implement regularization
 Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + lambda / m * Theta1(:, 2:end);
-Theta2_grad = 1 / m * Theta2_grad;
 Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + lambda / m * Theta2(:, 2:end);
 % -------------------------------------------------------------
 
