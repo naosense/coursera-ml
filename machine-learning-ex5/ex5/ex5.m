@@ -38,6 +38,7 @@ m = size(X, 1);
 plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
 xlabel('Change in water level (x)');
 ylabel('Water flowing out of the dam (y)');
+savePlot('../../figure/ex5-1 Plot training data.png');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
@@ -92,6 +93,7 @@ ylabel('Water flowing out of the dam (y)');
 hold on;
 plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
 hold off;
+savePlot('../../figure/ex5-2 Linear regression fit.png');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
@@ -116,6 +118,7 @@ legend('Train', 'Cross Validation')
 xlabel('Number of training examples')
 ylabel('Error')
 axis([0 13 0 150])
+savePlot('../../figure/ex5-3 Learning curve for linear regression.png');
 
 fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
 for i = 1:m
@@ -174,6 +177,7 @@ plotFit(min(X), max(X), mu, sigma, theta, p);
 xlabel('Change in water level (x)');
 ylabel('Water flowing out of the dam (y)');
 title (sprintf('Polynomial Regression Fit (lambda = %f)', lambda));
+savePlot('../../figure/ex5-4 Polynomial regression fit.png');
 
 figure(2);
 [error_train, error_val] = ...
@@ -185,6 +189,7 @@ xlabel('Number of training examples')
 ylabel('Error')
 axis([0 13 0 100])
 legend('Train', 'Cross Validation')
+savePlot('../../figure/ex5-5 Learning curve for polynomial regression.png');
 
 fprintf('Polynomial Regression (lambda = %f)\n\n', lambda);
 fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
@@ -192,6 +197,11 @@ for i = 1:m
     fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
 end
 
+fprintf('Program paused. Press enter to continue.\n');
+pause;
+
+%% ===========  (Optional) Adjusting the regularization parameter =============
+adjustReg(X_poly, X, y, X_poly_val, yval, mu, sigma, theta, p, m);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -209,6 +219,7 @@ plot(lambda_vec, error_train, lambda_vec, error_val);
 legend('Train', 'Cross Validation');
 xlabel('lambda');
 ylabel('Error');
+savePlot('../../figure/ex5-8 Validation for selecting lambda.png');
 
 fprintf('lambda\t\tTrain Error\tValidation Error\n');
 for i = 1:length(lambda_vec)
@@ -218,3 +229,37 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+%% =========== Optional (ungraded) exercise: Computing test set error =============
+[lambda_vec, error_train, error_val, error_test] = ...
+    computeTestError(X_poly, y, X_poly_val, yval, X_poly_test, ytest);
+
+close all;
+plot(lambda_vec, error_train, lambda_vec, error_val, lambda_vec, error_test);
+legend('Train', 'Cross Validation', 'Test');
+xlabel('lambda');
+ylabel('Error');
+savePlot('../../figure/ex5-9 Test error on different lambda.png');
+
+fprintf('lambda\t\tTrain Error\tValidation Error\tTest Error\n');
+for i = 1:length(lambda_vec)
+	fprintf(' %f\t%f\t%f\t%f\n', ...
+            lambda_vec(i), error_train(i), error_val(i), error_test(i));
+end
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
+
+%% =========== Optional (ungraded) exercise: Plotting learning ...
+...curves with randomly selected examples =============
+figure;
+lambda = 0.01;
+[error_train, error_val] = ...
+    randomLearningCurve(X_poly, y, X_poly_val, yval, lambda);
+plot(1:m, error_train, 1:m, error_val);
+title(sprintf('Random Polynomial Regression Learning Curve (lambda = %f)', lambda));
+xlabel('Number of training examples')
+ylabel('Error')
+axis([0 13 0 100])
+legend('Train', 'Cross Validation')
+savePlot('../../figure/ex5-10 Random learning curve for polynomial regression.png');
