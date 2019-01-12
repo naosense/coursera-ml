@@ -33,7 +33,7 @@ load('ex6data1.mat');
 
 % Plot training data
 plotData(X, y);
-
+savePlot('../../figure/ex6-1 Plot training data.png');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -53,7 +53,8 @@ fprintf('\nTraining Linear SVM ...\n')
 C = 1;
 model = svmTrain(X, y, C, @linearKernel, 1e-3, 20);
 visualizeBoundaryLinear(X, y, model);
-
+savePlot('../../figure/ex6-2 Linear decision boundary.png');
+visualizeBoundaryLinearVaries(X, y);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -83,9 +84,11 @@ fprintf('Loading and Visualizing Data ...\n')
 % You will have X, y in your environment
 load('ex6data2.mat');
 
+figure;
 % Plot training data
 plotData(X, y);
 
+savePlot('../../figure/ex6-4 Plot training data2.png');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -108,6 +111,7 @@ C = 1; sigma = 0.1;
 model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma)); 
 visualizeBoundary(X, y, model);
 
+savePlot('../../figure/ex6-5 Decision boundary(RBF Kernel, C = 1, sigma = 0.1).png');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -125,6 +129,7 @@ load('ex6data3.mat');
 % Plot training data
 plotData(X, y);
 
+savePlot('../../figure/ex6-6 Plot training data3.png');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
@@ -145,6 +150,7 @@ load('ex6data3.mat');
 model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
 visualizeBoundary(X, y, model);
 
+savePlot(sprintf('../../figure/ex6-7 Decision boundary(RBF Kernel, C = %d, sigma = %f).png', C, sigma));
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 

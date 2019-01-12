@@ -38,8 +38,8 @@ for i = 1:length(C_vec)
 end
 
 [row, column] = find(error_mat == min(min(error_mat)), 1);
-C = C_vec(row)
-sigma = sigma_vec(column)
+C = C_vec(row);
+sigma = sigma_vec(column);
 
 
 

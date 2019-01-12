@@ -1,6 +1,6 @@
 function savePlot(path)
     overwrite = false;
-    if (!overwrite & exist(path, 'file'))
+    if (~overwrite && exist(path, 'file'))
         return;
     end
     
