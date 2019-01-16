@@ -13,7 +13,7 @@
 
 ![ex1-5 Cost function by different alpha](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex1-5%20Cost%20function%20by%20different%20alpha.png)
 
-![ex4-1 Trainning accuracy by different lambda(MaxIter=200)](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex4-1%20Trainning%20accuracy%20by%20different%20lambda(MaxIter%3D200).png)
+![ex4-1 Trainning accuracy by different lambda(MaxIter=200)](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex4-1%20Trainning%20accuracy%20by%20different%20lambda\(MaxIter%3D200\).png)
 
 ![ex5-6 Polynomial regression fit on different lambdas](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex5-6%20Polynomial%20regression%20fit%20on%20different%20lambdas.png)
 
