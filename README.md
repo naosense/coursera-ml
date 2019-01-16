@@ -1,6 +1,4 @@
-# Machine Learning Execise
-
-## Execise List
+## Machine Learning Execise
 
 - [Ex1 Linear Regression](https://github.com/pingao777/coursera-ml/tree/master/machine-learning-ex1/ex1)
 - [Ex2 Logistic Regression](https://github.com/pingao777/coursera-ml/tree/master/machine-learning-ex2/ex2)
@@ -11,22 +9,16 @@
 - [Ex7 K-means Clustering and Principal Component Analysis](https://github.com/pingao777/coursera-ml/tree/master/machine-learning-ex7/ex7)
 - [Ex8 Anomaly Detection and Recommender Systems](https://github.com/pingao777/coursera-ml/tree/master/machine-learning-ex8/ex8)
 
-## Some Typical Figures
+## Typical Figure
 
-![ex1-2 Linear regression](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex1-2%20Linear%20regression.png)
-
-![ex1-4 Cost function contour](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex1-4%20Cost%20function%20contour.png)
-
-![ex2-4 Decision boundary on Microchip Test(lambda=0)](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex2-4%20Decision%20boundary%20on%20Microchip%20Test(lambda%3D0).png)
+![ex1-5 Cost function by different alpha](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex1-5%20Cost%20function%20by%20different%20alpha.png)
 
 ![ex4-1 Trainning accuracy by different lambda(MaxIter=200)](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex4-1%20Trainning%20accuracy%20by%20different%20lambda(MaxIter%3D200).png)
+
+![ex5-6 Polynomial regression fit on different lambdas](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex5-6%20Polynomial%20regression%20fit%20on%20different%20lambdas.png)
 
 ![ex5-7 Learning curve for polynomial regression on different lambdas](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex5-7%20Learning%20curve%20for%20polynomial%20regression%20on%20different%20lambdas.png)
 
 ![ex6-3 Linear decision boundary varies C](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex6-3%20Linear%20decision%20boundary%20varies%20C.png)
 
-![ex7-1 K-Means clustering progress](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex7-1%20K-Means%20clustering%20progress.png)
-
-![ex7-4 Draw lines connecting the projected points to the original points](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex7-4%20Draw%20lines%20connecting%20the%20projected%20points%20to%20the%20original%20points.png)
-
-![ex8-3 Draw a red circle around those outliers](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex8-3%20Draw%20a%20red%20circle%20around%20those%20outliers.png)
+![ex8-4 Visualize the ratings matrix](https://wocanmei-hexo.nos-eastchina1.126.net/coursera-ml/ex8-4%20Visualize%20the%20ratings%20matrix.png)
